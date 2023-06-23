@@ -2,6 +2,8 @@ import React from 'react'
 import { HashRouter } from 'react-router-dom'
 import { Layout } from './layout/Layout'
 import Pages from './Pages'
+import s from '../../s1-main/App.module.css'
+
 
 /*
 * 1 - в файле Pages.tsx дописать роуты на все страницы
@@ -13,9 +15,11 @@ function HW5() {
     return (
         <HashRouter>
             {/*в gh-pages лучше работает HashRouter, с BrowserRouter скорее всего не пройдёт тест*/}
-            <Layout>
-                <Pages />
-            </Layout>
+                <Layout>
+                    <div className={s.container}>
+                        <Pages />
+                    </div>
+                </Layout>
         </HashRouter>
     )
 }

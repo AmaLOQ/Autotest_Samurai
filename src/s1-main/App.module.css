@@ -1,8 +1,6 @@
 .App {
     --header_height: 60px;
-    padding: 100px 0;
-    width: 1200px;
-    margin: 0 auto;
+
 }
 .hw {
     margin: 24px 0;
@@ -10,6 +8,10 @@
     flex-direction: column;
 }
 .hw > div{
+}
+.container {
+    margin: 0 auto;
+    width: 1200px;
 }
 
 .hwTitle {

@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import s from './Stand.module.css'
+import s2 from './common/c1-SuperInputText/SuperInputText.module.css'
+import s3 from './common/c3-SuperCheckbox/SuperCheckbox.module.css'
 import SuperInputText from './common/c1-SuperInputText/SuperInputText'
 import SuperCheckbox from './common/c3-SuperCheckbox/SuperCheckbox'
 import SuperButton from './common/c2-SuperButton/SuperButton'
@@ -16,9 +18,12 @@ const Stand = () => {
                 {/*совместим со старым кодом:*/}
                 <div>
                     <SuperInputText
+                        className={s2.blue}
                         id={'hw4-super-input-like-old'}
                         value={stateForAllInputs}
-                        onChange={(e) => setValue(e.currentTarget.value)}
+                        onChange={(e) => {
+                            setValue(e.currentTarget.value)
+                        }}
                     />
                 </div>
                 {/*инпут с ошибкой:*/}
@@ -26,7 +31,10 @@ const Stand = () => {
                     <SuperInputText
                         id={'hw4-super-input-with-error'}
                         value={stateForAllInputs}
-                        onChangeText={setValue}
+                        onChangeText={(value)=>{
+                            setValue(value)
+                            setError('')
+                        }}
                         error={error}
                         onEnter={() => {
                             setError(
@@ -49,7 +57,7 @@ const Stand = () => {
                 </div>
                 {/*красная кнопка:*/}
                 <div>
-                    <SuperButton id={'hw4-super-button-red'} xType={'red'}>
+                    <SuperButton id={'hw4-super-button-red'} xType={'red'} >
                         red
                     </SuperButton>
                 </div>
@@ -57,7 +65,6 @@ const Stand = () => {
                 <div>
                     <SuperButton
                         id={'hw4-super-button-disabled'}
-                        xType={'red'}
                         disabled
                     >
                         disabled
@@ -88,6 +95,7 @@ const Stand = () => {
                 {/*совместим со старым кодом:*/}
                 <div>
                     <SuperCheckbox
+                        className={s3.second}
                         id={'hw4-super-checkbox-like-old'}
                         checked={stateForAllCheckboxes}
                         onChange={(e) => setChecked(e.currentTarget.checked)}
