@@ -1,8 +1,6 @@
 .sidebar {
     position: absolute;
     left: -100%;
-    animation-name: menu-burger-close;
-    animation-duration: 1s;
 }
 
 @keyframes menu-burger-open {
@@ -13,14 +11,7 @@
         left: 0;
     }
 }
-@keyframes menu-burger-close {
-    0% {
-        left: 0;
-    }
-    100% {
-        left: -100%;
-    }
-}
+
 
 .sidebar.open {
     padding: 20px 20px;
