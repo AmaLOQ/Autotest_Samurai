@@ -1,6 +1,5 @@
 .App {
     --header_height: 60px;
-
 }
 .hw {
     margin: 24px 0;
@@ -12,6 +11,9 @@
 .container {
     margin: 0 auto;
     width: 1200px;
+}
+.hw1 {
+    padding-top: 70px;
 }
 
 .hwTitle {
