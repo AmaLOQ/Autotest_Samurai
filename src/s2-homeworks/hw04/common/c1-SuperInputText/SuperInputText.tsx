@@ -4,6 +4,7 @@ import React, {
     InputHTMLAttributes,
     KeyboardEvent,
     ReactNode,
+    FocusEvent, FocusEventHandler
 } from 'react'
 import s from './SuperInputText.module.css'
 
@@ -39,12 +40,16 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         onChange && onChange(e) // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
         onChangeText && onChangeText(e.currentTarget.value)
     }
+
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress?.(e)
-
         onEnter && // если есть пропс onEnter
         e.key === 'Enter' && // и если нажата кнопка Enter
         onEnter() // то вызвать его
+    }
+
+    const onBlurHandler = (e: FocusEvent<HTMLInputElement, Element>) => {
+        restProps.onBlur && restProps.onBlur(e)
     }
 
     const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ''}`
@@ -53,11 +58,13 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
     return (
         <div className={s.inputWrapper}>
             <input
+                value={restProps.value}
                 id={id}
                 type={'text'}
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
                 className={finalInputClassName}
+                onBlur={onBlurHandler}
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
             <span

@@ -3,6 +3,7 @@ import React, {
     InputHTMLAttributes,
     HTMLAttributes,
     useState,
+    FocusEvent,
 } from 'react'
 import s from './SuperEditableSpan.module.css'
 import SuperInputText from '../../../hw04/common/c1-SuperInputText/SuperInputText'
@@ -22,7 +23,6 @@ type SuperEditableSpanType = Omit<DefaultInputPropsType, 'type'> & {
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: string
-
     spanProps?: DefaultSpanPropsType  & {defaultText?: string}// пропсы для спана
 }
 
@@ -32,7 +32,6 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
         onBlur,
         onEnter,
         spanProps,
-
         ...restProps // все остальные пропсы попадут в объект restProps
     }
 ) => {
@@ -42,21 +41,16 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
 
     const onEnterCallback = () => {
         // выключить editMode при нажатии Enter // делают студенты
-
-        onEnter?.()
+        setEditMode(false)
     }
-    const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
-        // выключить editMode при нажатии за пределами инпута // делают студенты
-
-        onBlur?.(e)
+    const onBlurCallback = (e: FocusEvent<HTMLInputElement, Element>) => {
+        setEditMode(false)
     }
-    const onDoubleClickCallBack = (
-        e: React.MouseEvent<HTMLSpanElement, MouseEvent>
-    ) => {
+    const onDoubleClickCallBack = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         // включить editMode при двойном клике // делают студенты
-
-        onDoubleClick?.(e)
+        setEditMode(true)
     }
+
 
     const spanClassName = s.span
         + (className ? ' ' + className : '')
@@ -65,6 +59,8 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
         <>
             {editMode ? (
                 <SuperInputText
+                    value={restProps.value}
+                    onChangeText={restProps.onChangeText}
                     autoFocus={autoFocus || true}
                     onBlur={onBlurCallback}
                     onEnter={onEnterCallback}
