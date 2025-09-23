@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Autotest_Samurai/static/css/main.9d8587de.css",
-    "main.js": "/Autotest_Samurai/static/js/main.182c23c9.js",
+    "main.js": "/Autotest_Samurai/static/js/main.41149648.js",
     "static/js/453.bcba8463.chunk.js": "/Autotest_Samurai/static/js/453.bcba8463.chunk.js",
     "static/media/avatar.png": "/Autotest_Samurai/static/media/avatar.d947cb9d0d13765666b6.png",
     "static/media/200.svg": "/Autotest_Samurai/static/media/200.96248f7df0dde10e0a82ac30418f50bc.svg",
@@ -16,11 +16,11 @@
     "index.html": "/Autotest_Samurai/index.html",
     "static/media/burger.svg": "/Autotest_Samurai/static/media/burger.700e416f7bfe3697f96b36c778d25355.svg",
     "main.9d8587de.css.map": "/Autotest_Samurai/static/css/main.9d8587de.css.map",
-    "main.182c23c9.js.map": "/Autotest_Samurai/static/js/main.182c23c9.js.map",
+    "main.41149648.js.map": "/Autotest_Samurai/static/js/main.41149648.js.map",
     "453.bcba8463.chunk.js.map": "/Autotest_Samurai/static/js/453.bcba8463.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9d8587de.css",
-    "static/js/main.182c23c9.js"
+    "static/js/main.41149648.js"
   ]
 }
